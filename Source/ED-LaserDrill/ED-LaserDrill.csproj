@@ -19,3 +19,4 @@
     <ProjectReference Include="..\0ED-Core\0ED-Core.csproj" />
   </ItemGroup>
 </Project>
+

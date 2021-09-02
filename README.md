@@ -1,14 +1,25 @@
 # EDLaserDrill
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of Jaxxas mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=722086956
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+- Removed the Core-requirement and included it in the mod instead since this mod seemed to be the only one that used it.
 
+![Image](https://i.imgur.com/pufA0kM.png)
+
+
+[table]
+    [tr]
+        [td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
+[/td]
+        [td]https://github.com/emipa606/EDLaserDrill]![Image](https://i.imgur.com/kTkpTOE.png)
+[/td]
+    [/tr]
+[/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
 Version: 2.1.0.0
 Links to all my mods including non steam versions available at: https://github.com/jaxxa/JaxxaRimworldReleaseCollection/blob/master/README.md
@@ -17,7 +28,7 @@ As of 1.1 this now required EnhancedDevelopment Core to be installed.
 
 Adds a Drilling Laser Targeting system that allows the creation or removal of steam vents. After research and construction, you will power the building while it conducts a subsurface scan. After the scan is complete, it can use a large amount of stored battery power to activate the laser of an orbiting satellite to drill or collapse a steam vent.
 
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 

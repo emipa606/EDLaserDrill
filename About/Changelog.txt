@@ -1,4 +1,7 @@
 # Changelog for EDLaserDrill
 
+1.0.1.0 - Added translation-strings
+
+
 1.0.0.0 - First publish
 

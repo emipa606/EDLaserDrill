@@ -92,16 +92,16 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
             var stringBuilder = new StringBuilder();
             if (IsScanComplete())
             {
-                stringBuilder.AppendLine("Scan complete");
+                stringBuilder.AppendLine("EDL.scancomplete".Translate());
             }
             else if (HasPowerToScan())
             {
-                stringBuilder.AppendLine("Scanning in Progress - Remaining: " +
-                                         DrillScanningRemainingTicks.ToStringTicksToPeriod());
+                stringBuilder.AppendLine(
+                    "EDL.scaninprogress".Translate(DrillScanningRemainingTicks.ToStringTicksToPeriod()));
             }
             else
             {
-                stringBuilder.AppendLine("Scanning Paused, Power Offline.");
+                stringBuilder.AppendLine("EDL.scanpaused".Translate());
             }
 
 
@@ -121,16 +121,16 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
             {
                 action = TriggerLaser,
                 icon = UI_LASER_ACTIVATE,
-                defaultLabel = "Activate Laser",
-                defaultDesc = "Activate Laser",
+                defaultLabel = "EDL.activatelaser".Translate(),
+                defaultDesc = "EDL.activatelaser".Translate(),
                 activateSound = SoundDef.Named("Click")
             };
             yield return new Command_Action
             {
                 action = TriggerLaserToFill,
                 icon = UI_LASER_ACTIVATEFILL,
-                defaultLabel = "Activate Laser Fill",
-                defaultDesc = "Activate Laser Fill",
+                defaultLabel = "EDL.activatelaserfill".Translate(),
+                defaultDesc = "EDL.activatelaserfill".Translate(),
                 activateSound = SoundDef.Named("Click")
             };
             if (DebugSettings.godMode)
@@ -138,8 +138,8 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
                 yield return new Command_Action
                 {
                     action = delegate { DrillScanningRemainingTicks -= 30000; },
-                    defaultLabel = "Debug: Progress Scann",
-                    defaultDesc = "Debug: Progress Scann",
+                    defaultLabel = "EDL.debugscan".Translate(),
+                    defaultDesc = "EDL.debugscan".Translate(),
                     activateSound = SoundDef.Named("Click")
                 };
             }
@@ -162,18 +162,18 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
             }
 
             var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine("Laser Activation Failure:");
+            stringBuilder.AppendLine("EDL.laseractivationfailure".Translate());
             if (!IsScanComplete())
             {
                 if (IsScanning())
                 {
-                    stringBuilder.AppendLine(" * Scanning incomplete - Time Remaining: " +
-                                             DrillScanningRemainingTicks.ToStringTicksToPeriod());
+                    stringBuilder.AppendLine(
+                        "EDL.scanningincomplete".Translate(DrillScanningRemainingTicks.ToStringTicksToPeriod()));
                 }
                 else
                 {
-                    stringBuilder.AppendLine(" * Scanning paused - Time Remaining after resuming: " +
-                                             DrillScanningRemainingTicks.ToStringTicksToPeriod());
+                    stringBuilder.AppendLine(
+                        "EDL.scanningpaused".Translate(DrillScanningRemainingTicks.ToStringTicksToPeriod()));
                 }
             }
 
@@ -182,7 +182,8 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
                 stringBuilder.AppendLine(" * " + m_RequiresShipResourcesComp.StatusString);
             }
 
-            Find.LetterStack.ReceiveLetter("Scann in progress", stringBuilder.ToString(), LetterDefOf.NeutralEvent,
+            Find.LetterStack.ReceiveLetter("EDL.scaninprogress".Translate(), stringBuilder.ToString(),
+                LetterDefOf.NeutralEvent,
                 new LookTargets(parent));
             Messages.Message(stringBuilder.ToString(), MessageTypeDefOf.NegativeEvent);
             return false;
@@ -242,12 +243,12 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
                     ShowLaserVisually(thing.Position);
                     thing.DeSpawn();
                     m_RequiresShipResourcesComp.UseResources();
-                    Messages.Message("SteamGeyser Removed.", MessageTypeDefOf.TaskCompletion);
+                    Messages.Message("EDL.steamgeyserremoved".Translate(), MessageTypeDefOf.TaskCompletion);
                     parent.Destroy();
                     return;
                 }
 
-                Messages.Message("SteamGeyser not found to Remove.", MessageTypeDefOf.NegativeEvent);
+                Messages.Message("EDL.steamgeysernotfound".Translate(), MessageTypeDefOf.NegativeEvent);
             }, delegate(LocalTargetInfo target) { GenDraw.DrawRadiusRing(target.Cell, 5f); }, null);
         }
 
@@ -269,7 +270,7 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
                 ShowLaserVisually(intVec);
                 GenSpawn.Spawn(ThingDef.Named("SteamGeyser"), intVec, parent.Map);
                 m_RequiresShipResourcesComp.UseResources();
-                Messages.Message("SteamGeyser Created.", MessageTypeDefOf.TaskCompletion);
+                Messages.Message("EDL.steamgeysercreated".Translate(), MessageTypeDefOf.TaskCompletion);
                 parent.Destroy();
             }, delegate(LocalTargetInfo target)
             {
@@ -284,7 +285,7 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
         private void ShowLaserVisually(IntVec3 position)
         {
             var unused =
-                (LaserDrillVisual) GenSpawn.Spawn(ThingDef.Named("LaserDrillVisual"), position, parent.Map);
+                (LaserDrillVisual)GenSpawn.Spawn(ThingDef.Named("LaserDrillVisual"), position, parent.Map);
         }
 
         // Token: 0x0600002C RID: 44 RVA: 0x00002A84 File Offset: 0x00000C84
@@ -313,9 +314,9 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
                 return;
             }
 
-            ((Command_Toggle) m_FlickComp.CompGetGizmosExtra().ToList().First()).toggleAction();
+            ((Command_Toggle)m_FlickComp.CompGetGizmosExtra().ToList().First()).toggleAction();
             m_FlickComp.SwitchIsOn = false;
-            Messages.Message("Drill Shutdown, Multiple Drills Scanning at once will cause interference.", parent,
+            Messages.Message("EDL.drillshutdown".Translate(), parent,
                 MessageTypeDefOf.RejectInput);
         }
     }

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <EDL.scancomplete>Scan complete</EDL.scancomplete>
+  <EDL.scaninprogress>Scanning in Progress - Remaining: {0}</EDL.scaninprogress>
+  <EDL.scanpaused>Scanning Paused, Power Offline.</EDL.scanpaused>
+  <EDL.activatelaser>Activate Laser</EDL.activatelaser>
+  <EDL.activatelaserfill>Activate Laser Fill</EDL.activatelaserfill>
+  <EDL.laseractivationfailure>Laser Activation Failure:</EDL.laseractivationfailure>
+  <EDL.scanningincomplete> * Scanning incomplete - Time Remaining: {0}</EDL.scanningincomplete>
+  <EDL.scanningpaused> * Scanning paused - Time Remaining after resuming: {0}</EDL.scanningpaused>
+  <EDL.scaninprogress>Scan in progress</EDL.scaninprogress>
+  <EDL.steamgeyserremoved>Steam Geyser Removed</EDL.steamgeyserremoved>
+  <EDL.steamgeysernotfound>Steam Geyser not found to remove</EDL.steamgeysernotfound>
+  <EDL.steamgeysercreated>Steam Geyser created</EDL.steamgeysercreated>
+  <EDL.drillshutdown>Drill shutdown, multiple drills scanning at once will cause interference.</EDL.drillshutdown>
+  <EDL.enoughpower>Sufficient power for drill activation, ready to use {0} Wd.</EDL.enoughpower>
+  <EDL.notenoughpower>Insufficient power stored for drill activation, needs {0} Wd. Currently has {1} Wd.</EDL.notenoughpower>
+  <EDL.scanningdays>Scanning Days Required: {0}</EDL.scanningdays>
+  <EDL.allowsimultaneous>Allow Simultaneous Drilling</EDL.allowsimultaneous>
+  <EDL.allowsimultaneous.description>True if you want to allow multiple drills at once.</EDL.allowsimultaneous.description>
+  <EDL.default>Default</EDL.default>
+  <EDL.debugscan>Debug: Progress Scan</EDL.debugscan>
+</LanguageData>

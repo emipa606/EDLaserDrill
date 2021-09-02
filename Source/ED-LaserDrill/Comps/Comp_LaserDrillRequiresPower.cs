@@ -51,11 +51,10 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
             {
                 if (HasEnoughEnergy(out var currentEnergy))
                 {
-                    return "Sufficient Power for Drill Activation, ready to use 6,000 Wd.";
+                    return "EDL.enoughpower".Translate(m_RequiredEnergy);
                 }
 
-                return "Insufficient Power stored for Drill Activation, needs 6,000 Wd. Currently has " +
-                       Math.Floor(currentEnergy) + " Wd.";
+                return "EDL.notenoughpower".Translate(m_RequiredEnergy, Math.Floor(currentEnergy));
             }
         }
 
@@ -84,7 +83,7 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps
 
             if (num != null)
             {
-                currentEnergy = (float) num;
+                currentEnergy = (float)num;
             }
 
             var num2 = num;
