@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>ED-Laser-Drill (Continued)</name>
   <packageId>Mlie.EDLaserDrill</packageId>
@@ -18,7 +18,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=722086956
 
 - Removed the Core-requirement and included it in the mod instead since this mod seemed to be the only one that used it.
 
-[img]https://i.imgur.com/pufA0kM.png[/img]
+[img]https://i.imgur.com/CN9Rs5X.png[/img]
 
 [table]
     [tr]

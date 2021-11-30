@@ -7,17 +7,8 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=722086956
 
 - Removed the Core-requirement and included it in the mod instead since this mod seemed to be the only one that used it.
 
-![Image](https://i.imgur.com/pufA0kM.png)
+![Image](https://i.imgur.com/CN9Rs5X.png)
 
-
-[table]
-    [tr]
-        [td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-        [td]https://github.com/emipa606/EDLaserDrill]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-    [/tr]
-[/table]
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)
 
