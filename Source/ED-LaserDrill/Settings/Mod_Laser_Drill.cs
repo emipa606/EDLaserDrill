@@ -1,30 +1,28 @@
-﻿using UnityEngine;
+using Mlie;
+using UnityEngine;
 using Verse;
 
-namespace Jaxxa.EnhancedDevelopment.LaserDrill.Settings
+namespace Jaxxa.EnhancedDevelopment.LaserDrill.Settings;
+
+internal class Mod_Laser_Drill : Mod
 {
-    // Token: 0x02000002 RID: 2
-    internal class Mod_Laser_Drill : Mod
+    public static ModSettings_LaserDrill Settings;
+
+    public static string currentVersion;
+
+    public Mod_Laser_Drill(ModContentPack content) : base(content)
     {
-        // Token: 0x04000001 RID: 1
-        public static ModSettings_LaserDrill Settings;
+        Settings = GetSettings<ModSettings_LaserDrill>();
+        currentVersion = VersionFromManifest.GetVersionFromModMetaData(content.ModMetaData);
+    }
 
-        // Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
-        public Mod_Laser_Drill(ModContentPack content) : base(content)
-        {
-            Settings = GetSettings<ModSettings_LaserDrill>();
-        }
+    public override string SettingsCategory()
+    {
+        return "ED-Laser Drill";
+    }
 
-        // Token: 0x06000002 RID: 2 RVA: 0x00002064 File Offset: 0x00000264
-        public override string SettingsCategory()
-        {
-            return "ED-Laser Drill";
-        }
-
-        // Token: 0x06000003 RID: 3 RVA: 0x0000206B File Offset: 0x0000026B
-        public override void DoSettingsWindowContents(Rect inRect)
-        {
-            Settings.DoSettingsWindowContents(inRect);
-        }
+    public override void DoSettingsWindowContents(Rect inRect)
+    {
+        Settings.DoSettingsWindowContents(inRect);
     }
 }
