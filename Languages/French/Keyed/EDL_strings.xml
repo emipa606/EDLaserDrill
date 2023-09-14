@@ -21,4 +21,9 @@
   <EDL.default>Défaut</EDL.default>
   <EDL.debugscan>Débogage : Analyse de l'état d'avancement</EDL.debugscan>
   <EDL.CurrentModVersion>Version installée du mod : {0}</EDL.CurrentModVersion>
+  <EDL.activatelaserTT>Crée un geyser de vapeur</EDL.activatelaserTT>
+  <EDL.activatehelixienlaser>Activer le laser (Helixien)</EDL.activatehelixienlaser>
+  <EDL.activatehelixienlaserTT>Crée un geyser hélixien</EDL.activatehelixienlaserTT>
+  <EDL.scaninginprogress>Scan en cours</EDL.scaninginprogress>
+  <EDL.helixiengeysercreated>Geyser Helixien créé</EDL.helixiengeysercreated>
 </LanguageData>

@@ -7,7 +7,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=722086956
 
 - Removed the Core-requirement and included it in the mod instead since this mod seemed to be the only one that used it.
 
-![Image](https://i.imgur.com/CN9Rs5X.png)
+![Image](https://i.imgur.com/pufA0kM.png)
 
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)
@@ -32,5 +32,5 @@ Adds a Drilling Laser Targeting system that allows the creation or removal of st
 
 
 
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2570228927]![Image](https://img.shields.io/github/v/release/emipa606/EDLaserDrill?label=latest%20version&style=plastic&color=9f1111&labelColor=black)
 
-https://steamcommunity.com/sharedfiles/filedetails/changelog/2570228927]Last updated 2023-04-25

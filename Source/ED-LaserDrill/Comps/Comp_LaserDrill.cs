@@ -108,9 +108,22 @@ internal class Comp_LaserDrill : ThingComp
             action = TriggerLaser,
             icon = UI_LASER_ACTIVATE,
             defaultLabel = "EDL.activatelaser".Translate(),
-            defaultDesc = "EDL.activatelaser".Translate(),
+            defaultDesc = "EDL.activatelaserTT".Translate(),
             activateSound = SoundDef.Named("Click")
         };
+
+        if (ModLister.GetActiveModWithIdentifier("VanillaExpanded.HelixienGas") != null)
+        {
+            yield return new Command_Action
+            {
+                action = TriggerHelixienLaser,
+                icon = ContentFinder<Texture2D>.Get("Things/Building/Natural/GasGeyser"),
+                defaultLabel = "EDL.activatehelixienlaser".Translate(),
+                defaultDesc = "EDL.activatehelixienlaserTT".Translate(),
+                activateSound = SoundDef.Named("Click")
+            };
+        }
+
         yield return new Command_Action
         {
             action = TriggerLaserToFill,
@@ -160,7 +173,7 @@ internal class Comp_LaserDrill : ThingComp
             stringBuilder.AppendLine($" * {m_RequiresShipResourcesComp.StatusString}");
         }
 
-        Find.LetterStack.ReceiveLetter("EDL.scaninprogress".Translate(), stringBuilder.ToString(),
+        Find.LetterStack.ReceiveLetter("EDL.scaninginprogress".Translate(), stringBuilder.ToString(),
             LetterDefOf.NeutralEvent,
             new LookTargets(parent));
         Messages.Message(stringBuilder.ToString(), MessageTypeDefOf.NegativeEvent);
@@ -175,6 +188,7 @@ internal class Comp_LaserDrill : ThingComp
     public Thing FindClosestGeyserToPoint(IntVec3 location)
     {
         var list = parent.Map.listerThings.ThingsOfDef(ThingDefOf.SteamGeyser);
+
         Thing result = null;
         var num = double.MaxValue;
         foreach (var thing in list)
@@ -242,9 +256,37 @@ internal class Comp_LaserDrill : ThingComp
             }
 
             ShowLaserVisually(intVec);
-            GenSpawn.Spawn(ThingDef.Named("SteamGeyser"), intVec, parent.Map);
+            GenSpawn.Spawn(ThingDefOf.SteamGeyser, intVec, parent.Map);
             m_RequiresShipResourcesComp.UseResources();
             Messages.Message("EDL.steamgeysercreated".Translate(), MessageTypeDefOf.TaskCompletion);
+            parent.Destroy();
+        }, delegate(LocalTargetInfo target)
+        {
+            GenDraw.DrawRadiusRing(target.Cell, 0.1f);
+            GenDraw.DrawRadiusRing(new IntVec3(target.Cell.x + 1, target.Cell.y, target.Cell.z), 0.1f);
+            GenDraw.DrawRadiusRing(new IntVec3(target.Cell.x, target.Cell.y, target.Cell.z + 1), 0.1f);
+            GenDraw.DrawRadiusRing(new IntVec3(target.Cell.x + 1, target.Cell.y, target.Cell.z + 1), 0.1f);
+        }, null);
+    }
+
+    public void TriggerHelixienLaser()
+    {
+        var targetingParameters = new TargetingParameters
+        {
+            canTargetLocations = true
+        };
+        Find.Targeter.BeginTargeting(targetingParameters, delegate(LocalTargetInfo target)
+        {
+            var intVec = new IntVec3(target.Cell.x, target.Cell.y, target.Cell.z);
+            if (!IsValidForActivation())
+            {
+                return;
+            }
+
+            ShowLaserVisually(intVec);
+            GenSpawn.Spawn(ThingDef.Named("VHGE_GasGeyser"), intVec, parent.Map);
+            m_RequiresShipResourcesComp.UseResources();
+            Messages.Message("EDL.helixiengeysercreated".Translate(), MessageTypeDefOf.TaskCompletion);
             parent.Destroy();
         }, delegate(LocalTargetInfo target)
         {

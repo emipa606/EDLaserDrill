@@ -21,4 +21,9 @@
   <EDL.default>默认情况下</EDL.default>
   <EDL.debugscan>调试：进度扫描</EDL.debugscan>
   <EDL.CurrentModVersion>已安装的mod-version：{0}</EDL.CurrentModVersion>
+  <EDL.activatelaserTT>产生蒸汽喷泉</EDL.activatelaserTT>
+  <EDL.activatehelixienlaser>激活激光（Helixien）</EDL.activatehelixienlaser>
+  <EDL.activatehelixienlaserTT>创建日光喷泉</EDL.activatehelixienlaserTT>
+  <EDL.scaninginprogress>扫描中</EDL.scaninginprogress>
+  <EDL.helixiengeysercreated>创建的赫利仙间歇泉</EDL.helixiengeysercreated>
 </LanguageData>

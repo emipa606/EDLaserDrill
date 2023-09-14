@@ -21,4 +21,9 @@
   <EDL.default>По умолчанию</EDL.default>
   <EDL.debugscan>Отладка: Прогресс сканирования</EDL.debugscan>
   <EDL.CurrentModVersion>Установленная версия мода: {0}</EDL.CurrentModVersion>
+  <EDL.activatelaserTT>Создает паровой гейзер</EDL.activatelaserTT>
+  <EDL.activatehelixienlaser>Активировать лазер (Helixien)</EDL.activatehelixienlaser>
+  <EDL.activatehelixienlaserTT>Создает геликсиновый гейзер</EDL.activatehelixienlaserTT>
+  <EDL.scaninginprogress>Выполняется сканирование</EDL.scaninginprogress>
+  <EDL.helixiengeysercreated>Создан гейзер Хеликсиен</EDL.helixiengeysercreated>
 </LanguageData>

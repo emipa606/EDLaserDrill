@@ -4,14 +4,18 @@
   <EDL.scaninprogress>Scanning in Progress - Remaining: {0}</EDL.scaninprogress>
   <EDL.scanpaused>Scanning Paused, Power Offline.</EDL.scanpaused>
   <EDL.activatelaser>Activate Laser</EDL.activatelaser>
+  <EDL.activatelaserTT>Creates a steam geyser</EDL.activatelaserTT>
+  <EDL.activatehelixienlaser>Activate Laser (Helixien)</EDL.activatehelixienlaser>
+  <EDL.activatehelixienlaserTT>Creates a helixien geyser</EDL.activatehelixienlaserTT>
   <EDL.activatelaserfill>Activate Laser Fill</EDL.activatelaserfill>
   <EDL.laseractivationfailure>Laser Activation Failure:</EDL.laseractivationfailure>
   <EDL.scanningincomplete> * Scanning incomplete - Time Remaining: {0}</EDL.scanningincomplete>
   <EDL.scanningpaused> * Scanning paused - Time Remaining after resuming: {0}</EDL.scanningpaused>
-  <EDL.scaninprogress>Scan in progress</EDL.scaninprogress>
-  <EDL.steamgeyserremoved>Steam Geyser Removed</EDL.steamgeyserremoved>
-  <EDL.steamgeysernotfound>Steam Geyser not found to remove</EDL.steamgeysernotfound>
+  <EDL.scaninginprogress>Scan in progress</EDL.scaninginprogress>
+  <EDL.steamgeyserremoved>Geyser Removed</EDL.steamgeyserremoved>
+  <EDL.steamgeysernotfound>Geyser not found to remove</EDL.steamgeysernotfound>
   <EDL.steamgeysercreated>Steam Geyser created</EDL.steamgeysercreated>
+  <EDL.helixiengeysercreated>Helixien Geyser created</EDL.helixiengeysercreated>
   <EDL.drillshutdown>Drill shutdown, multiple drills scanning at once will cause interference.</EDL.drillshutdown>
   <EDL.enoughpower>Sufficient power for drill activation, ready to use {0} Wd.</EDL.enoughpower>
   <EDL.notenoughpower>Insufficient power stored for drill activation, needs {0} Wd. Currently has {1} Wd.</EDL.notenoughpower>

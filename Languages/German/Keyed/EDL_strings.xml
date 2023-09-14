@@ -21,4 +21,9 @@
   <EDL.default>Standard</EDL.default>
   <EDL.debugscan>Fehlersuche: Fortschrittsprüfung</EDL.debugscan>
   <EDL.CurrentModVersion>Installierte Mod-Version: {0}</EDL.CurrentModVersion>
+  <EDL.activatelaserTT>Erzeugt einen Dampfgeysir</EDL.activatelaserTT>
+  <EDL.activatehelixienlaser>Laser aktivieren (Helixien)</EDL.activatehelixienlaser>
+  <EDL.activatehelixienlaserTT>Erzeugt einen helixartigen Geysir</EDL.activatehelixienlaserTT>
+  <EDL.scaninginprogress>Scanvorgang läuft</EDL.scaninginprogress>
+  <EDL.helixiengeysercreated>Helixien Geysir geschaffen</EDL.helixiengeysercreated>
 </LanguageData>
