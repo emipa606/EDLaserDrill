@@ -26,4 +26,6 @@
   <EDL.activatehelixienlaserTT>Crée un geyser hélixien</EDL.activatehelixienlaserTT>
   <EDL.scaninginprogress>Scan en cours</EDL.scaninginprogress>
   <EDL.helixiengeysercreated>Geyser Helixien créé</EDL.helixiengeysercreated>
+  <EDL.removeafteroneuse>Retirer le foret après une utilisation</EDL.removeafteroneuse>
+  <EDL.removeafteroneuse.description>L'exercice sera consommé à l'usage</EDL.removeafteroneuse.description>
 </LanguageData>

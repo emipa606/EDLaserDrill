@@ -26,4 +26,6 @@
   <EDL.activatehelixienlaserTT>Erzeugt einen helixartigen Geysir</EDL.activatehelixienlaserTT>
   <EDL.scaninginprogress>Scanvorgang läuft</EDL.scaninginprogress>
   <EDL.helixiengeysercreated>Helixien Geysir geschaffen</EDL.helixiengeysercreated>
+  <EDL.removeafteroneuse>Bohrer nach einmaligem Gebrauch entfernen</EDL.removeafteroneuse>
+  <EDL.removeafteroneuse.description>Der Bohrer wird bei Gebrauch verbraucht</EDL.removeafteroneuse.description>
 </LanguageData>

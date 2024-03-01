@@ -26,4 +26,6 @@
   <EDL.activatehelixienlaserTT>创建日光喷泉</EDL.activatehelixienlaserTT>
   <EDL.scaninginprogress>扫描中</EDL.scaninginprogress>
   <EDL.helixiengeysercreated>创建的赫利仙间歇泉</EDL.helixiengeysercreated>
+  <EDL.removeafteroneuse>使用一次后取下钻头</EDL.removeafteroneuse>
+  <EDL.removeafteroneuse.description>演习将在使用中消耗</EDL.removeafteroneuse.description>
 </LanguageData>

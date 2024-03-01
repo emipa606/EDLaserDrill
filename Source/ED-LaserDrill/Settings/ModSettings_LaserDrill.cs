@@ -6,6 +6,7 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Settings;
 internal class ModSettings_LaserDrill : ModSettings
 {
     public bool AllowSimultaneousDrilling;
+    public bool RemoveAfterOneUse = true;
 
     public int RequiredScanningTimeDays = 10;
 
@@ -14,6 +15,7 @@ internal class ModSettings_LaserDrill : ModSettings
         base.ExposeData();
         Scribe_Values.Look(ref RequiredScanningTimeDays, "RequiredScanningTimeDays", 10, true);
         Scribe_Values.Look(ref AllowSimultaneousDrilling, "AllowSimultaneousDrilling", false, true);
+        Scribe_Values.Look(ref RemoveAfterOneUse, "RemoveAfterOneUse", true, true);
     }
 
     public void DoSettingsWindowContents(Rect canvas)
@@ -33,6 +35,8 @@ internal class ModSettings_LaserDrill : ModSettings
         listing_Standard.GapLine();
         listing_Standard.CheckboxLabeled("EDL.allowsimultaneous".Translate(), ref AllowSimultaneousDrilling,
             "EDL.allowsimultaneous.description".Translate());
+        listing_Standard.CheckboxLabeled("EDL.removeafteroneuse".Translate(), ref RemoveAfterOneUse,
+            "EDL.removeafteroneuse.description".Translate());
         listing_Standard.GapLine();
         if (Mod_Laser_Drill.currentVersion != null)
         {

@@ -40,8 +40,8 @@ internal class Comp_LaserDrill : ThingComp
         m_FlickComp = parent.GetComp<CompFlickable>();
         Properties = props as CompProperties_LaserDrill;
         m_PowerComp = parent.TryGetComp<CompPowerTrader>();
-        if (!(parent.GetComps<ThingComp>().FirstOrDefault(x => x is IRequiresShipResources) is
-                IRequiresShipResources requiresShipResources))
+        if (parent.GetComps<ThingComp>().FirstOrDefault(x => x is IRequiresShipResources) is
+            not IRequiresShipResources requiresShipResources)
         {
             Log.Error("Comp_LaserDrill Failed to get Comp With IRequiresShipResources");
         }
@@ -259,7 +259,14 @@ internal class Comp_LaserDrill : ThingComp
             GenSpawn.Spawn(ThingDefOf.SteamGeyser, intVec, parent.Map);
             m_RequiresShipResourcesComp.UseResources();
             Messages.Message("EDL.steamgeysercreated".Translate(), MessageTypeDefOf.TaskCompletion);
-            parent.Destroy();
+            if (Mod_Laser_Drill.Settings.RemoveAfterOneUse)
+            {
+                parent.Destroy();
+            }
+            else
+            {
+                SetRequiredDrillScanningToDefault();
+            }
         }, delegate(LocalTargetInfo target)
         {
             GenDraw.DrawRadiusRing(target.Cell, 0.1f);
@@ -287,7 +294,14 @@ internal class Comp_LaserDrill : ThingComp
             GenSpawn.Spawn(ThingDef.Named("VHGE_GasGeyser"), intVec, parent.Map);
             m_RequiresShipResourcesComp.UseResources();
             Messages.Message("EDL.helixiengeysercreated".Translate(), MessageTypeDefOf.TaskCompletion);
-            parent.Destroy();
+            if (Mod_Laser_Drill.Settings.RemoveAfterOneUse)
+            {
+                parent.Destroy();
+            }
+            else
+            {
+                SetRequiredDrillScanningToDefault();
+            }
         }, delegate(LocalTargetInfo target)
         {
             GenDraw.DrawRadiusRing(target.Cell, 0.1f);

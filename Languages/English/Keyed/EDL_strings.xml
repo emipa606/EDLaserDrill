@@ -22,6 +22,8 @@
   <EDL.scanningdays>Scanning Days Required: {0}</EDL.scanningdays>
   <EDL.allowsimultaneous>Allow Simultaneous Drilling</EDL.allowsimultaneous>
   <EDL.allowsimultaneous.description>True if you want to allow multiple drills at once.</EDL.allowsimultaneous.description>
+  <EDL.removeafteroneuse>Remove drill after one use</EDL.removeafteroneuse>
+  <EDL.removeafteroneuse.description>The drill will be consumed on use</EDL.removeafteroneuse.description>
   <EDL.default>Default</EDL.default>
   <EDL.debugscan>Debug: Progress Scan</EDL.debugscan>
   <EDL.CurrentModVersion>Installed mod-version: {0}</EDL.CurrentModVersion>

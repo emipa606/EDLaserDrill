@@ -6,9 +6,25 @@ Update of Jaxxas mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=722086956
 
 - Removed the Core-requirement and included it in the mod instead since this mod seemed to be the only one that used it.
+- You can now create Helixien Geysers if https://steamcommunity.com/sharedfiles/filedetails/?id=2877699803]Vanilla Helixien Gas Expanded is loaded
 
 ![Image](https://i.imgur.com/pufA0kM.png)
 
+
+[table]
+    [tr]
+        [td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
+[/td]
+        [td]https://github.com/emipa606/EDLaserDrill]![Image](https://i.imgur.com/kTkpTOE.png)
+[/td]
+    [/tr]
+    [tr]
+        [td]![Image](https://i.imgur.com/WjDSfUn.png)
+[/td]
+        [td]![Image](https://i.imgur.com/h5VwTNL.png)
+[/td]
+    [/tr]
+[/table]
 	
 ![Image](https://i.imgur.com/Z4GOv8H.png)
 
@@ -25,7 +41,7 @@ Adds a Drilling Laser Targeting system that allows the creation or removal of st
 
 -  See if the the error persists if you just have this mod and its requirements active.
 -  If not, try adding your other mods until it happens again.
--  Post your error-log using https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib and command Ctrl+F12
+-  Post your error-log using https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib or the standalone https://steamcommunity.com/sharedfiles/filedetails/?id=2873415404]Uploader and command Ctrl+F12
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.

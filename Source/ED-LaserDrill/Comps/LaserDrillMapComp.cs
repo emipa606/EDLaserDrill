@@ -4,22 +4,17 @@ using Verse;
 
 namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps;
 
-internal class LaserDrillMapComp : MapComponent
+internal class LaserDrillMapComp(Map map) : MapComponent(map)
 {
     public const int CHECK_INTERVAL = 1000;
 
-    private readonly List<Comp_LaserDrill> comps = new List<Comp_LaserDrill>();
+    private readonly List<Comp_LaserDrill> comps = [];
 
-    private Map m_Map;
-
-    public LaserDrillMapComp(Map map) : base(map)
-    {
-        m_Map = map;
-    }
+    private Map m_Map = map;
 
     public override void MapComponentTick()
     {
-        if (Mod_Laser_Drill.Settings.AllowSimultaneousDrilling || Find.TickManager.TicksGame % 1000 != 0)
+        if (Mod_Laser_Drill.Settings.AllowSimultaneousDrilling || Find.TickManager.TicksGame % CHECK_INTERVAL != 0)
         {
             return;
         }

@@ -26,4 +26,6 @@
   <EDL.activatehelixienlaserTT>Создает геликсиновый гейзер</EDL.activatehelixienlaserTT>
   <EDL.scaninginprogress>Выполняется сканирование</EDL.scaninginprogress>
   <EDL.helixiengeysercreated>Создан гейзер Хеликсиен</EDL.helixiengeysercreated>
+  <EDL.removeafteroneuse>Удалите сверло после одного использования</EDL.removeafteroneuse>
+  <EDL.removeafteroneuse.description>Дрель будет расходоваться при использовании</EDL.removeafteroneuse.description>
 </LanguageData>
