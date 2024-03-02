@@ -233,7 +233,14 @@ internal class Comp_LaserDrill : ThingComp
                 thing.DeSpawn();
                 m_RequiresShipResourcesComp.UseResources();
                 Messages.Message("EDL.steamgeyserremoved".Translate(), MessageTypeDefOf.TaskCompletion);
-                parent.Destroy();
+                if (Mod_Laser_Drill.Settings.RemoveAfterOneUse)
+                {
+                    parent.Destroy();
+                }
+                else
+                {
+                    SetRequiredDrillScanningToDefault();
+                }
                 return;
             }
 
