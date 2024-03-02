@@ -241,6 +241,7 @@ internal class Comp_LaserDrill : ThingComp
                 {
                     SetRequiredDrillScanningToDefault();
                 }
+
                 return;
             }
 

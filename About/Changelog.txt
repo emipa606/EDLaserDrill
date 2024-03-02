@@ -1,5 +1,8 @@
 # Changelog for EDLaserDrill
 
+1.4.4 - Had missed the option implementation for filling geysers, thanks Deadmano!
+
+
 1.4.3 - Added option to use drill multiple times
 Used DeepL to update translations for ChineseSimplified, French, German, Russian
 
