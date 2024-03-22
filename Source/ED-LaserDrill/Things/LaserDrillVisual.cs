@@ -1,5 +1,6 @@
 using System.Linq;
 using RimWorld;
+using UnityEngine;
 using Verse;
 
 namespace Jaxxa.EnhancedDevelopment.LaserDrill.Things;
@@ -61,7 +62,7 @@ internal class LaserDrillVisual : ThingWithComps
         Scribe_Values.Look(ref StartTick, "StartTick");
     }
 
-    public override void Draw()
+    protected override void DrawAt(Vector3 drawLoc, bool flip = false)
     {
         Comps_PostDraw();
     }
@@ -71,6 +72,6 @@ internal class LaserDrillVisual : ThingWithComps
         FireUtility.TryStartFireIn((from x in GenRadial.RadialCellsAround(Position, 25f, true)
                 where x.InBounds(Map)
                 select x).RandomElementByWeight(x => DistanceChanceFactor.Evaluate(x.DistanceTo(Position))), Map,
-            Rand.Range(0.1f, 0.925f));
+            Rand.Range(0.1f, 0.925f), this);
     }
 }

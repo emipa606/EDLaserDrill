@@ -1,5 +1,8 @@
 # Changelog for EDLaserDrill
 
+1.5.0 - Mod updated for 1.5 and passed autotests
+
+
 1.4.4 - Had missed the option implementation for filling geysers, thanks Deadmano!
 
 

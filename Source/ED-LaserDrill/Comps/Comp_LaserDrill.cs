@@ -321,8 +321,7 @@ internal class Comp_LaserDrill : ThingComp
 
     private void ShowLaserVisually(IntVec3 position)
     {
-        var unused =
-            (LaserDrillVisual)GenSpawn.Spawn(ThingDef.Named("LaserDrillVisual"), position, parent.Map);
+        _ = (LaserDrillVisual)GenSpawn.Spawn(ThingDef.Named("LaserDrillVisual"), position, parent.Map);
     }
 
     private bool IsScanComplete()
