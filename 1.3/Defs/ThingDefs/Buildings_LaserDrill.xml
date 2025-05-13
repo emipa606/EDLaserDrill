@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <!--================================ Lasers ======================================-->
   <ThingDef ParentName="BuildingBase">
     <defName>LaserDrill</defName>
-    <label>Laser Drill Tageting</label>
+    <label>Laser Drill Targeting</label>
     <thingClass>Building</thingClass>
     <graphicData>
       <texPath>Things/Buildings/LaserDrill</texPath>

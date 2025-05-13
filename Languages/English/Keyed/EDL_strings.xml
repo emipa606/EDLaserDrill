@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <EDL.scancomplete>Scan complete</EDL.scancomplete>
   <EDL.scaninprogress>Scanning in Progress - Remaining: {0}</EDL.scaninprogress>
