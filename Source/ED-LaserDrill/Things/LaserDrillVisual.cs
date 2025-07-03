@@ -27,7 +27,7 @@ internal class LaserDrillVisual : ThingWithComps
 
     protected int TicksLeft => Duration - TicksPassed;
 
-    protected int TicksPassed => Find.TickManager.TicksGame - StartTick;
+    private int TicksPassed => Find.TickManager.TicksGame - StartTick;
 
     public override void SpawnSetup(Map map, bool respawningAfterLoad)
     {
@@ -40,7 +40,7 @@ internal class LaserDrillVisual : ThingWithComps
         MoteMaker.MakePowerBeamMote(Position, Map);
     }
 
-    public override void Tick()
+    protected override void Tick()
     {
         base.Tick();
         if (TicksPassed >= Duration)
@@ -50,7 +50,7 @@ internal class LaserDrillVisual : ThingWithComps
 
         if (!Destroyed && Find.TickManager.TicksGame % 50 == 0)
         {
-            StartRandomFire();
+            startRandomFire();
         }
     }
 
@@ -67,7 +67,7 @@ internal class LaserDrillVisual : ThingWithComps
         Comps_PostDraw();
     }
 
-    private void StartRandomFire()
+    private void startRandomFire()
     {
         FireUtility.TryStartFireIn((from x in GenRadial.RadialCellsAround(Position, 25f, true)
                 where x.InBounds(Map)

@@ -6,15 +6,13 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps;
 
 internal class LaserDrillMapComp(Map map) : MapComponent(map)
 {
-    public const int CHECK_INTERVAL = 1000;
+    private const int CheckInterval = 1000;
 
     private readonly List<Comp_LaserDrill> comps = [];
 
-    private Map m_Map = map;
-
     public override void MapComponentTick()
     {
-        if (Mod_Laser_Drill.Settings.AllowSimultaneousDrilling || Find.TickManager.TicksGame % CHECK_INTERVAL != 0)
+        if (Mod_Laser_Drill.Settings.AllowSimultaneousDrilling || Find.TickManager.TicksGame % CheckInterval != 0)
         {
             return;
         }

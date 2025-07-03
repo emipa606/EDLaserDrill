@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: Laser Steam Geyser Drill -->
+  <Research_LaserSteamGeyser_Drill.label>Laser Steam Geyser Drill</Research_LaserSteamGeyser_Drill.label>
+  <!-- EN: Unlocks a Drilling Laser Targeting system that allows the creation or removal of steam vents. After research and construction, you will power the building while it conducts a subsurface scan. After the scan is complete, it can use a large amount of stored battery power to activate the laser of an orbiting satellite to drill or collapse a steam vent. -->
+  <Research_LaserSteamGeyser_Drill.description>Unlocks a Drilling Laser Targeting system that allows the creation or removal of steam vents. After research and construction, you will power the building while it conducts a subsurface scan. After the scan is complete, it can use a large amount of stored battery power to activate the laser of an orbiting satellite to drill or collapse a steam vent.</Research_LaserSteamGeyser_Drill.description>
+</LanguageData>

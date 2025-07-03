@@ -14,9 +14,9 @@ namespace Jaxxa.EnhancedDevelopment.LaserDrill.Comps;
 [StaticConstructorOnStartup]
 internal class Comp_LaserDrill : ThingComp
 {
-    private static readonly Texture2D UI_LASER_ACTIVATE = ContentFinder<Texture2D>.Get("UI/Power/SteamGeyser");
+    private static readonly Texture2D uiLaserActivate = ContentFinder<Texture2D>.Get("UI/Power/SteamGeyser");
 
-    private static readonly Texture2D UI_LASER_ACTIVATEFILL =
+    private static readonly Texture2D uiLaserActivatefill =
         ContentFinder<Texture2D>.Get("UI/Power/RemoveSteamGeyser");
 
     private int DrillScanningRemainingTicks;
@@ -29,7 +29,7 @@ internal class Comp_LaserDrill : ThingComp
 
     private CompProperties_LaserDrill Properties;
 
-    private bool HasSufficientShipResources()
+    private bool hasSufficientShipResources()
     {
         return m_RequiresShipResourcesComp.Satisfied;
     }
@@ -52,7 +52,7 @@ internal class Comp_LaserDrill : ThingComp
 
         if (!respawningAfterLoad)
         {
-            SetRequiredDrillScanningToDefault();
+            setRequiredDrillScanningToDefault();
         }
 
         parent.Map.GetComponent<LaserDrillMapComp>().Register(this);
@@ -77,11 +77,11 @@ internal class Comp_LaserDrill : ThingComp
     public override string CompInspectStringExtra()
     {
         var stringBuilder = new StringBuilder();
-        if (IsScanComplete())
+        if (isScanComplete())
         {
             stringBuilder.AppendLine("EDL.scancomplete".Translate());
         }
-        else if (HasPowerToScan())
+        else if (hasPowerToScan())
         {
             stringBuilder.AppendLine(
                 "EDL.scaninprogress".Translate(DrillScanningRemainingTicks.ToStringTicksToPeriod()));
@@ -105,18 +105,18 @@ internal class Comp_LaserDrill : ThingComp
 
         yield return new Command_Action
         {
-            action = TriggerLaser,
-            icon = UI_LASER_ACTIVATE,
+            action = triggerLaser,
+            icon = uiLaserActivate,
             defaultLabel = "EDL.activatelaser".Translate(),
             defaultDesc = "EDL.activatelaserTT".Translate(),
             activateSound = SoundDef.Named("Click")
         };
 
-        if (ModLister.GetActiveModWithIdentifier("VanillaExpanded.HelixienGas") != null)
+        if (ModLister.GetActiveModWithIdentifier("VanillaExpanded.HelixienGas", true) != null)
         {
             yield return new Command_Action
             {
-                action = TriggerHelixienLaser,
+                action = triggerHelixienLaser,
                 icon = ContentFinder<Texture2D>.Get("Things/Building/Natural/GasGeyser"),
                 defaultLabel = "EDL.activatehelixienlaser".Translate(),
                 defaultDesc = "EDL.activatehelixienlaserTT".Translate(),
@@ -126,8 +126,8 @@ internal class Comp_LaserDrill : ThingComp
 
         yield return new Command_Action
         {
-            action = TriggerLaserToFill,
-            icon = UI_LASER_ACTIVATEFILL,
+            action = triggerLaserToFill,
+            icon = uiLaserActivatefill,
             defaultLabel = "EDL.activatelaserfill".Translate(),
             defaultDesc = "EDL.activatelaserfill".Translate(),
             activateSound = SoundDef.Named("Click")
@@ -144,23 +144,23 @@ internal class Comp_LaserDrill : ThingComp
         }
     }
 
-    public override void PostDeSpawn(Map map)
+    public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
     {
         map.GetComponent<LaserDrillMapComp>().Deregister(this);
-        SetRequiredDrillScanningToDefault();
-        base.PostDeSpawn(map);
+        setRequiredDrillScanningToDefault();
+        base.PostDeSpawn(map, mode);
     }
 
-    private bool IsValidForActivation()
+    private bool isValidForActivation()
     {
-        if (IsScanComplete() & HasSufficientShipResources())
+        if (isScanComplete() & hasSufficientShipResources())
         {
             return true;
         }
 
         var stringBuilder = new StringBuilder();
         stringBuilder.AppendLine("EDL.laseractivationfailure".Translate());
-        if (!IsScanComplete())
+        if (!isScanComplete())
         {
             stringBuilder.AppendLine(
                 IsScanning()
@@ -168,7 +168,7 @@ internal class Comp_LaserDrill : ThingComp
                     : "EDL.scanningpaused".Translate(DrillScanningRemainingTicks.ToStringTicksToPeriod()));
         }
 
-        if (!HasSufficientShipResources())
+        if (!hasSufficientShipResources())
         {
             stringBuilder.AppendLine($" * {m_RequiresShipResourcesComp.StatusString}");
         }
@@ -180,12 +180,12 @@ internal class Comp_LaserDrill : ThingComp
         return false;
     }
 
-    private void SetRequiredDrillScanningToDefault()
+    private void setRequiredDrillScanningToDefault()
     {
         DrillScanningRemainingTicks = Mod_Laser_Drill.Settings.RequiredScanningTimeDays * 60000;
     }
 
-    public Thing FindClosestGeyserToPoint(IntVec3 location)
+    private Thing findClosestGeyserToPoint(IntVec3 location)
     {
         var list = parent.Map.listerThings.ThingsOfDef(ThingDefOf.SteamGeyser);
 
@@ -212,7 +212,7 @@ internal class Comp_LaserDrill : ThingComp
         return result;
     }
 
-    public void TriggerLaserToFill()
+    private void triggerLaserToFill()
     {
         var targetingParameters = new TargetingParameters
         {
@@ -221,15 +221,15 @@ internal class Comp_LaserDrill : ThingComp
         Find.Targeter.BeginTargeting(targetingParameters, delegate(LocalTargetInfo target)
         {
             var location = new IntVec3(target.Cell.x, target.Cell.y, target.Cell.z);
-            if (!IsValidForActivation())
+            if (!isValidForActivation())
             {
                 return;
             }
 
-            var thing = FindClosestGeyserToPoint(location);
+            var thing = findClosestGeyserToPoint(location);
             if (thing != null)
             {
-                ShowLaserVisually(thing.Position);
+                showLaserVisually(thing.Position);
                 thing.DeSpawn();
                 m_RequiresShipResourcesComp.UseResources();
                 Messages.Message("EDL.steamgeyserremoved".Translate(), MessageTypeDefOf.TaskCompletion);
@@ -239,7 +239,7 @@ internal class Comp_LaserDrill : ThingComp
                 }
                 else
                 {
-                    SetRequiredDrillScanningToDefault();
+                    setRequiredDrillScanningToDefault();
                 }
 
                 return;
@@ -249,7 +249,7 @@ internal class Comp_LaserDrill : ThingComp
         }, delegate(LocalTargetInfo target) { GenDraw.DrawRadiusRing(target.Cell, 5f); }, null);
     }
 
-    public void TriggerLaser()
+    private void triggerLaser()
     {
         var targetingParameters = new TargetingParameters
         {
@@ -258,12 +258,12 @@ internal class Comp_LaserDrill : ThingComp
         Find.Targeter.BeginTargeting(targetingParameters, delegate(LocalTargetInfo target)
         {
             var intVec = new IntVec3(target.Cell.x, target.Cell.y, target.Cell.z);
-            if (!IsValidForActivation())
+            if (!isValidForActivation())
             {
                 return;
             }
 
-            ShowLaserVisually(intVec);
+            showLaserVisually(intVec);
             GenSpawn.Spawn(ThingDefOf.SteamGeyser, intVec, parent.Map);
             m_RequiresShipResourcesComp.UseResources();
             Messages.Message("EDL.steamgeysercreated".Translate(), MessageTypeDefOf.TaskCompletion);
@@ -273,7 +273,7 @@ internal class Comp_LaserDrill : ThingComp
             }
             else
             {
-                SetRequiredDrillScanningToDefault();
+                setRequiredDrillScanningToDefault();
             }
         }, delegate(LocalTargetInfo target)
         {
@@ -284,7 +284,7 @@ internal class Comp_LaserDrill : ThingComp
         }, null);
     }
 
-    public void TriggerHelixienLaser()
+    private void triggerHelixienLaser()
     {
         var targetingParameters = new TargetingParameters
         {
@@ -293,12 +293,12 @@ internal class Comp_LaserDrill : ThingComp
         Find.Targeter.BeginTargeting(targetingParameters, delegate(LocalTargetInfo target)
         {
             var intVec = new IntVec3(target.Cell.x, target.Cell.y, target.Cell.z);
-            if (!IsValidForActivation())
+            if (!isValidForActivation())
             {
                 return;
             }
 
-            ShowLaserVisually(intVec);
+            showLaserVisually(intVec);
             GenSpawn.Spawn(ThingDef.Named("VHGE_GasGeyser"), intVec, parent.Map);
             m_RequiresShipResourcesComp.UseResources();
             Messages.Message("EDL.helixiengeysercreated".Translate(), MessageTypeDefOf.TaskCompletion);
@@ -308,7 +308,7 @@ internal class Comp_LaserDrill : ThingComp
             }
             else
             {
-                SetRequiredDrillScanningToDefault();
+                setRequiredDrillScanningToDefault();
             }
         }, delegate(LocalTargetInfo target)
         {
@@ -319,24 +319,24 @@ internal class Comp_LaserDrill : ThingComp
         }, null);
     }
 
-    private void ShowLaserVisually(IntVec3 position)
+    private void showLaserVisually(IntVec3 position)
     {
         _ = (LaserDrillVisual)GenSpawn.Spawn(ThingDef.Named("LaserDrillVisual"), position, parent.Map);
     }
 
-    private bool IsScanComplete()
+    private bool isScanComplete()
     {
         return DrillScanningRemainingTicks <= 0;
     }
 
-    private bool HasPowerToScan()
+    private bool hasPowerToScan()
     {
         return m_PowerComp == null || m_PowerComp.PowerOn;
     }
 
     public bool IsScanning()
     {
-        return !IsScanComplete() & HasPowerToScan();
+        return !isScanComplete() & hasPowerToScan();
     }
 
     public void StopScanning()

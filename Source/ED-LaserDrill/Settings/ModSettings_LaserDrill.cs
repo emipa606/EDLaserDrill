@@ -20,32 +20,32 @@ internal class ModSettings_LaserDrill : ModSettings
 
     public void DoSettingsWindowContents(Rect canvas)
     {
-        var listing_Standard = new Listing_Standard { ColumnWidth = 250f };
-        listing_Standard.Begin(canvas);
-        listing_Standard.GapLine();
-        listing_Standard.Label("EDL.scanningdays".Translate(RequiredScanningTimeDays));
-        listing_Standard.Gap();
-        var listing_Standard2 = new Listing_Standard();
-        listing_Standard2.Begin(listing_Standard.GetRect(30f));
-        listing_Standard2.ColumnWidth = 70f;
-        listing_Standard2.IntAdjuster(ref RequiredScanningTimeDays, 1, 1);
-        listing_Standard2.NewColumn();
-        listing_Standard2.IntSetter(ref RequiredScanningTimeDays, 10, "EDL.default".Translate());
-        listing_Standard2.End();
-        listing_Standard.GapLine();
-        listing_Standard.CheckboxLabeled("EDL.allowsimultaneous".Translate(), ref AllowSimultaneousDrilling,
+        var listingStandard = new Listing_Standard { ColumnWidth = 250f };
+        listingStandard.Begin(canvas);
+        listingStandard.GapLine();
+        listingStandard.Label("EDL.scanningdays".Translate(RequiredScanningTimeDays));
+        listingStandard.Gap();
+        var listingStandard2 = new Listing_Standard();
+        listingStandard2.Begin(listingStandard.GetRect(30f));
+        listingStandard2.ColumnWidth = 70f;
+        listingStandard2.IntAdjuster(ref RequiredScanningTimeDays, 1, 1);
+        listingStandard2.NewColumn();
+        listingStandard2.IntSetter(ref RequiredScanningTimeDays, 10, "EDL.default".Translate());
+        listingStandard2.End();
+        listingStandard.GapLine();
+        listingStandard.CheckboxLabeled("EDL.allowsimultaneous".Translate(), ref AllowSimultaneousDrilling,
             "EDL.allowsimultaneous.description".Translate());
-        listing_Standard.CheckboxLabeled("EDL.removeafteroneuse".Translate(), ref RemoveAfterOneUse,
+        listingStandard.CheckboxLabeled("EDL.removeafteroneuse".Translate(), ref RemoveAfterOneUse,
             "EDL.removeafteroneuse.description".Translate());
-        listing_Standard.GapLine();
+        listingStandard.GapLine();
         if (Mod_Laser_Drill.currentVersion != null)
         {
-            listing_Standard.Gap();
+            listingStandard.Gap();
             GUI.contentColor = Color.gray;
-            listing_Standard.Label("EDL.CurrentModVersion".Translate(Mod_Laser_Drill.currentVersion));
+            listingStandard.Label("EDL.CurrentModVersion".Translate(Mod_Laser_Drill.currentVersion));
             GUI.contentColor = Color.white;
         }
 
-        listing_Standard.End();
+        listingStandard.End();
     }
 }

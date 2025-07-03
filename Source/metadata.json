@@ -2,8 +2,13 @@
   "Continued": true,
   "CanAdd": "0",
   "CanRemove": "0",
-  "PreviewVersion": "1.5",
-  "LastXmlCleaning": "2025-05-13T21:40:06.8019715+02:00",
+  "PreviewVersion": "1.6",
+  "LastXmlCleaning": "2025-07-03T19:59:42.5393941+02:00",
   "SocialImageSet": true,
-  "SearchTags": " geysers"
+  "SearchTags": " geysers",
+  "Patches": false,
+  "Defs": true,
+  "Assemblies": true,
+  "LinesOfCode": 25104.0,
+  "LinesOfXML": 4075.0
 }

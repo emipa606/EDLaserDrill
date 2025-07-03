@@ -13,7 +13,7 @@ internal class Comp_LaserDrillRequiresPower : ThingComp, IRequiresShipResources
 
     public bool UseResources()
     {
-        if (!HasEnoughEnergy(out _))
+        if (!hasEnoughEnergy(out _))
         {
             return false;
         }
@@ -35,9 +35,9 @@ internal class Comp_LaserDrillRequiresPower : ThingComp, IRequiresShipResources
         return true;
     }
 
-    bool IRequiresShipResources.Satisfied => HasEnoughEnergy(out _);
+    bool IRequiresShipResources.Satisfied => hasEnoughEnergy(out _);
 
-    string IRequiresShipResources.StatusString => HasEnoughEnergy(out var currentEnergy)
+    string IRequiresShipResources.StatusString => hasEnoughEnergy(out var currentEnergy)
         ? "EDL.enoughpower".Translate(m_RequiredEnergy)
         : "EDL.notenoughpower".Translate(m_RequiredEnergy, Math.Floor(currentEnergy));
 
@@ -47,7 +47,7 @@ internal class Comp_LaserDrillRequiresPower : ThingComp, IRequiresShipResources
         m_PowerComp = parent.TryGetComp<CompPowerTrader>();
     }
 
-    private bool HasEnoughEnergy(out float currentEnergy)
+    private bool hasEnoughEnergy(out float currentEnergy)
     {
         var powerComp = m_PowerComp;
         currentEnergy = 0;
