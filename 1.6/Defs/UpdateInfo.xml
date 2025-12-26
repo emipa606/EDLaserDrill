@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<TabulaRasa.UpdateDef Abstract="true" Name="EDLaserDrill_UpdateInfoBase">
+		<linkUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=2570228927</linkUrl>
+		<banner>UpdateInfo/EDLaserDrill</banner>
+	</TabulaRasa.UpdateDef>
+	<TabulaRasa.UpdateDef ParentName="EDLaserDrill_UpdateInfoBase" MayRequire="neronix17.toolbox">
+		<defName>EDLaserDrill_1_6_0</defName>
+		<date>2025/12/26</date>
+		<content>The original version of this mod has been updated, please use it instead. This version will remain, but unlisted and will not be updated further.</content>
+	</TabulaRasa.UpdateDef>
+</Defs>
+
